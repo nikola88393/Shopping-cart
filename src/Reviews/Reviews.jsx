@@ -7,7 +7,7 @@ const reviewsText = {
   2: "Stylish and affordable! I was surprised by how well-made the jacket is for the price. My new go-to store for fashion!",
 };
 const Reviews = () => {
-  const { data, error, loading } = useFakeFetch(
+  const { data, loading, error } = useFakeFetch(
     "https://fakestoreapi.com/users?limit=3"
   );
   const [review, setReview] = useState(0);
@@ -21,7 +21,6 @@ const Reviews = () => {
   if (!data) {
     return "No data to show";
   }
-  console.log(data);
 
   return (
     <div>
@@ -40,7 +39,9 @@ const Reviews = () => {
       </ul>
       <div>
         <div>
-          <p>{data[review].name.firstname}</p>
+          <p>
+            {data[review].name.firstname} {data[review].name.lastname}
+          </p>
           <p>{data[review].email}</p>
           <h2>Very satisfied</h2>
           <p>{reviewsText[review]}</p>
