@@ -20,3 +20,8 @@
   display: flex;
   gap: 10px;
 }
+
+.navLinkActive {
+  color: rebeccapurple;
+  background-color: red;
+}

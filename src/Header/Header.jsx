@@ -6,10 +6,25 @@ const Header = ({ cartItems = 0 }) => {
   return (
     <div className={styles.headerContainer}>
       <header className={styles.header}>
-        <ul className={styles.navLinks}>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/store">Store</NavLink>
-          <NavLink to="#">About us</NavLink>
+        <ul id="nav" className={styles.navLinks}>
+          <NavLink
+            to="/"
+            className={({ isActive }) => (isActive ? styles.navLinkActive : "")}
+          >
+            Home
+          </NavLink>
+          <NavLink
+            to="/store"
+            className={({ isActive }) => (isActive ? styles.navLinkActive : "")}
+          >
+            Store
+          </NavLink>
+          <NavLink
+            // to="#"
+            className={({ isActive }) => (isActive ? styles.navLinkActive : "")}
+          >
+            About us
+          </NavLink>
         </ul>
         <h2>Logo</h2>
         <div>
