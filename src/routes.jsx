@@ -1,6 +1,7 @@
 import Store from "./Store/Store";
 import Home from "./Home/Home";
 import Error from "./Error/Error";
+import About from "./AboutUs/About";
 
 const routes = [
   {
@@ -11,6 +12,10 @@ const routes = [
   {
     path: "store",
     element: <Store />,
+  },
+  {
+    path: "about",
+    element: <About />,
   },
 ];
 

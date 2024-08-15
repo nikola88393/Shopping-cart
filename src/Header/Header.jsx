@@ -20,7 +20,7 @@ const Header = ({ cartItems = 0 }) => {
             Store
           </NavLink>
           <NavLink
-            // to="#"
+            to="/about"
             className={({ isActive }) => (isActive ? styles.navLinkActive : "")}
           >
             About us
