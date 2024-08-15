@@ -1,7 +1,7 @@
-import Store from "./Store/Store";
-import Home from "./Home/Home";
-import Error from "./Error/Error";
-import About from "./AboutUs/About";
+import Store from "./components/Store/Store";
+import Home from "./components/Home/Home";
+import Error from "./components/Error/Error";
+import About from "./components/AboutUs/About";
 
 const routes = [
   {

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import useFakeFetch from "../useFakeFetch";
+import useFakeFetch from "../../useFakeFetch";
 
 const reviewsText = {
   0: "Absolutely love the quality! The dress I bought fits perfectly and the fabric feels so luxurious. Will definitely shop here again!",
