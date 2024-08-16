@@ -1,25 +1,32 @@
 import Store from "./components/Store/Store";
-import Home from "./components/Home/Home";
 import Error from "./components/Error/Error";
+import App from "./App";
+import Cart from "./components/Cart/Cart";
 import About from "./components/AboutUs/About";
 
 const routes = [
   {
     path: "/",
-    element: <Home />,
+    element: <App />,
     errorElement: <Error />,
-  },
-  {
-    path: "store",
-    element: <Store />,
-  },
-  {
-    path: "store/:category",
-    element: <Store />,
-  },
-  {
-    path: "about",
-    element: <About />,
+    children: [
+      {
+        path: "/store",
+        element: <Store />,
+      },
+      {
+        path: "/store/:category",
+        element: <Store />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+    ],
   },
 ];
 

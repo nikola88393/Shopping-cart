@@ -1,7 +1,7 @@
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
+// import Header from "../Header/Header";
+// import Footer from "../Footer/Footer";
 import useFakeFetch from "../../useFakeFetch";
-import { NavLink, Outlet, useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import styles from "./Store.module.css";
 
 const Store = () => {
@@ -34,10 +34,10 @@ const Store = () => {
   if (!products || !categories) {
     return <p>Could not retrieve data</p>;
   }
-  console.log(category);
+
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <div className={styles.storeContainer}>
         <aside className={styles.productFilters}>
           <h2>Filters</h2>
@@ -57,7 +57,6 @@ const Store = () => {
         </aside>
         <main className={styles.productsWrapper}>
           <div className={styles.productsContainer}>
-            <Outlet />
             {category
               ? filter(category).map((item) => (
                   <div key={item.id} className={styles.itemCard}>
@@ -80,7 +79,7 @@ const Store = () => {
           </div>
         </main>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };
