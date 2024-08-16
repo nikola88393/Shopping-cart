@@ -7,14 +7,7 @@ import { useContext } from "react";
 import { CartContext } from "../../App";
 
 const Store = () => {
-  const {
-    cart,
-    addToCart,
-    removeFromCart,
-    clearCart,
-    getCartTotal,
-    getCartQuantity,
-  } = useContext(CartContext);
+  const { cart, addToCart, getCartTotal } = useContext(CartContext);
   //Destructuring!!!
   const {
     data: products,

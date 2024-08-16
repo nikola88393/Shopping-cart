@@ -30,7 +30,13 @@ export const useCart = () => {
   };
 
   const getCartTotal = () => {
-    return cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    return cart
+      .reduce((acc, item) => acc + item.price * item.quantity, 0)
+      .toFixed(2);
+  };
+
+  const getCartTax = () => {
+    return (getCartTotal() * 0.2).toFixed(2);
   };
 
   const getCartQuantity = () => {
@@ -44,5 +50,6 @@ export const useCart = () => {
     clearCart,
     getCartTotal,
     getCartQuantity,
+    getCartTax,
   };
 };

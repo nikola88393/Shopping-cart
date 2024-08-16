@@ -31,7 +31,12 @@ const Header = () => {
         </ul>
         <h2>Logo</h2>
         <div>
-          <a>Cart icon</a>
+          <NavLink
+            to="/cart"
+            className={({ isActive }) => (isActive ? styles.navLinkActive : "")}
+          >
+            Cart
+          </NavLink>
           <span>{getCartQuantity()}</span>
         </div>
       </header>
