@@ -14,6 +14,10 @@ const routes = [
     element: <Store />,
   },
   {
+    path: "store/:category",
+    element: <Store />,
+  },
+  {
     path: "about",
     element: <About />,
   },
