@@ -3,8 +3,18 @@
 import useFakeFetch from "../../useFakeFetch";
 import { NavLink, useParams } from "react-router-dom";
 import styles from "./Store.module.css";
+import { useContext } from "react";
+import { CartContext } from "../../App";
 
 const Store = () => {
+  const {
+    cart,
+    addToCart,
+    removeFromCart,
+    clearCart,
+    getCartTotal,
+    getCartQuantity,
+  } = useContext(CartContext);
   //Destructuring!!!
   const {
     data: products,
@@ -20,6 +30,12 @@ const Store = () => {
 
   const { category } = useParams();
 
+  const addToCartHandler = (product, quantity = 1) => {
+    console.log(typeof quantity);
+    addToCart(product, quantity);
+    console.log(cart);
+    console.log(getCartTotal());
+  };
   const filter = (category) => {
     return products.filter((item) => item.category === category);
   };
@@ -63,8 +79,25 @@ const Store = () => {
                     <img src={item.image} alt={item.title + " image"} />
                     <p>{item.title}</p>
                     <p>{item.price}$</p>
-                    <button>Add to cart</button>
-                    <input type="number" min="1" max="10" defaultValue={1} />
+                    <button
+                      onClick={() => {
+                        console.log(document.getElementById(item.id).value);
+
+                        addToCartHandler(
+                          item,
+                          Number(document.getElementById(item.id).value)
+                        );
+                      }}
+                    >
+                      Add to cart
+                    </button>
+                    <input
+                      id={item.id}
+                      type="number"
+                      min="1"
+                      max="10"
+                      defaultValue={1}
+                    />
                   </div>
                 ))
               : products.map((item) => (
@@ -72,8 +105,23 @@ const Store = () => {
                     <img src={item.image} alt={item.title + " image"} />
                     <p>{item.title}</p>
                     <p>{item.price}$</p>
-                    <button>Add to cart</button>
-                    <input type="number" min="1" max="10" defaultValue={1} />
+                    <button
+                      onClick={() => {
+                        addToCartHandler(
+                          item,
+                          Number(document.getElementById(item.id).value)
+                        );
+                      }}
+                    >
+                      Add to cart
+                    </button>
+                    <input
+                      id={item.id}
+                      type="number"
+                      min="1"
+                      max="10"
+                      defaultValue={1}
+                    />
                   </div>
                 ))}
           </div>

@@ -2,7 +2,10 @@
 import PropTypes from "prop-types";
 import styles from "./Header.module.css";
 import { NavLink } from "react-router-dom";
-const Header = ({ cartItems = 0 }) => {
+import { useContext } from "react";
+import { CartContext } from "../../App";
+const Header = () => {
+  const { getCartQuantity } = useContext(CartContext);
   return (
     <div className={styles.headerContainer}>
       <header className={styles.header}>
@@ -29,7 +32,7 @@ const Header = ({ cartItems = 0 }) => {
         <h2>Logo</h2>
         <div>
           <a>Cart icon</a>
-          <span>{cartItems}</span>
+          <span>{getCartQuantity()}</span>
         </div>
       </header>
     </div>
