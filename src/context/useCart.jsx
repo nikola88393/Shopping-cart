@@ -21,6 +21,24 @@ export const useCart = () => {
     setCart([...cart, { ...product, quantity: quantity }]);
   };
 
+  const decreaseQuantity = (product) => {
+    if (product.quantity === 1) {
+      removeFromCart(product);
+      return;
+    }
+    setCart(
+      cart.map((item) => {
+        if (item.id === product.id) {
+          return {
+            ...item,
+            quantity: item.quantity - 1,
+          };
+        }
+        return item;
+      })
+    );
+  };
+
   const removeFromCart = (product) => {
     setCart(cart.filter((item) => item.id !== product.id));
   };
@@ -51,5 +69,6 @@ export const useCart = () => {
     getCartTotal,
     getCartQuantity,
     getCartTax,
+    decreaseQuantity,
   };
 };

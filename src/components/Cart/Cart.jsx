@@ -9,6 +9,7 @@ const Cart = () => {
     clearCart,
     getCartTotal,
     getCartTax,
+    decreaseQuantity,
   } = useContext(CartContext);
   return (
     <div>
@@ -21,7 +22,8 @@ const Cart = () => {
               <p>Price: {item.price}</p>
               <p>Quantity: {item.quantity}</p>
               <button onClick={() => addToCart(item)}>+</button>
-              <button onClick={() => removeFromCart(item)}>-</button>
+              <button onClick={() => removeFromCart(item)}>Delete</button>
+              <button onClick={() => decreaseQuantity(item)}>-</button>
             </div>
           ))
         ) : (
