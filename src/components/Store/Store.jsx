@@ -1,5 +1,3 @@
-// import Header from "../Header/Header";
-// import Footer from "../Footer/Footer";
 import useFakeFetch from "../../useFakeFetch";
 import { NavLink, useParams } from "react-router-dom";
 import styles from "./Store.module.css";
@@ -46,7 +44,6 @@ const Store = () => {
 
   return (
     <>
-      {/* <Header /> */}
       <div className={styles.storeContainer}>
         <aside className={styles.productFilters}>
           <h2>Filters</h2>
@@ -120,7 +117,6 @@ const Store = () => {
           </div>
         </main>
       </div>
-      {/* <Footer /> */}
     </>
   );
 };
