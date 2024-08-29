@@ -1,5 +1,6 @@
 import { useState } from "react";
 import useFakeFetch from "../../useFakeFetch";
+import reviewsCss from "./Reviews.module.css";
 
 const reviewsText = {
   0: "Absolutely love the quality! The dress I bought fits perfectly and the fabric feels so luxurious. Will definitely shop here again!",
@@ -23,29 +24,31 @@ const Reviews = () => {
   }
 
   return (
-    <div>
-      <ul>
+    <div className={reviewsCss.reviewsContainer}>
+      <ul className={reviewsCss.customerList}>
         {data.map((entry) => (
           <li
             onClick={() => {
               setReview(entry.id - 1);
             }}
             key={entry.id}
+            className={reviewsCss.customer}
           >
             {entry.name.firstname}
           </li>
         ))}
-        ----------
       </ul>
-      <div>
-        <div>
-          <p>
-            {data[review].name.firstname} {data[review].name.lastname}
-          </p>
-          <p>{data[review].email}</p>
-          <h2>Very satisfied</h2>
-          <p>{reviewsText[review]}</p>
-        </div>
+      <div className={reviewsCss.currentReview}>
+        <p>{data[review].email}</p>
+        <p>
+          What {data[review].name.firstname} {data[review].name.lastname} has to
+          say:
+        </p>
+        <p>------------------------------------</p>
+        <h2>Very satisfied</h2>
+        <p className={reviewsCss.reviewText}>
+          &quot;{reviewsText[review]}&quot;
+        </p>
       </div>
     </div>
   );

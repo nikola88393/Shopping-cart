@@ -1,0 +1,4 @@
+.aboutContainer {
+  composes: homeContainer from "../Home/Home.module.css";
+  flex-direction: column;
+}

@@ -1,0 +1,27 @@
+.reviewsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+}
+.customerList {
+  display: flex;
+  text-decoration: none;
+  gap: 20px;
+  padding: 10px;
+}
+
+.currentReview {
+  composes: reviewsContainer;
+  gap: 10px;
+  padding: 10px;
+}
+
+.customer {
+  composes: btn from "../Home/Home.module.css";
+}
+
+.reviewText {
+  font-style: italic;
+}

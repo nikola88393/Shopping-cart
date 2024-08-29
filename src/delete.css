@@ -12,8 +12,14 @@ a:active {
   color: black;
 }
 
+ul {
+  list-style-type: none;
+}
+
 #root {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-image: url(../clark-street-mercantile-P3pI6xzovu0-unsplash.jpg);
+  background-size: cover;
 }
