@@ -3,6 +3,7 @@ import styles from "./Header.module.css";
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../../App";
+import { ShoppingCart } from "lucide-react";
 const Header = () => {
   const { getCartQuantity } = useContext(CartContext);
   return (
@@ -29,14 +30,14 @@ const Header = () => {
           </NavLink>
         </ul>
         <h2>Logo</h2>
-        <div>
+        <div className={styles.cartContainer}>
           <NavLink
             to="/cart"
             className={({ isActive }) => (isActive ? styles.navLinkActive : "")}
           >
-            Cart
+            <ShoppingCart />
           </NavLink>
-          <span>{getCartQuantity()}</span>
+          <span className={styles.cartQuantity}>{getCartQuantity()}</span>
         </div>
       </header>
     </div>

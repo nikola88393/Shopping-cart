@@ -20,7 +20,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
+  padding: 15px 20px;
   border-radius: 8px;
   background-color: var(--white);
 }
@@ -31,10 +31,24 @@
   font-size: 1.2em;
 }
 
-a {
-  color: var(--blue);
-  font-weight: 700;
-}
 .navLinkActive {
   border-bottom: 1px solid var(--red);
+}
+
+.cartContainer {
+  position: relative;
+}
+
+.cartQuantity {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: -10px;
+  right: -12px;
+  color: var(--red);
+  font-weight: 600;
+  border-radius: 10px;
+  width: 20px;
+  height: 20px;
 }
