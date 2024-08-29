@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { CartContext } from "../../App";
 
 const Store = () => {
-  const { cart, addToCart, getCartTotal } = useContext(CartContext);
+  const { addToCart } = useContext(CartContext);
   //Destructuring!!!
   const {
     data: products,
@@ -22,10 +22,8 @@ const Store = () => {
   const { category } = useParams();
 
   const addToCartHandler = (product, quantity = 1) => {
-    console.log(typeof quantity);
     addToCart(product, quantity);
-    console.log(cart);
-    console.log(getCartTotal());
+    document.getElementById(`${product.id}`).value = 1;
   };
   const filter = (category) => {
     return products.filter((item) => item.category === category);
