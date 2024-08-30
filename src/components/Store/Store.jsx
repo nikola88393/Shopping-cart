@@ -51,7 +51,7 @@ const Store = () => {
                 key={category}
                 to={`/store/${category}`}
                 className={({ isActive }) =>
-                  isActive ? styles.navLinkActive : ""
+                  isActive ? styles.navLinkActive : styles.navLink
                 }
               >
                 {category}
@@ -67,25 +67,33 @@ const Store = () => {
                     <img src={item.image} alt={item.title + " image"} />
                     <p>{item.title}</p>
                     <p>{item.price}$</p>
-                    <button
-                      onClick={() => {
-                        console.log(document.getElementById(item.id).value);
+                    <div className={styles.cardOptions}>
+                      <button
+                        onClick={() => {
+                          console.log(document.getElementById(item.id).value);
 
-                        addToCartHandler(
-                          item,
-                          Number(document.getElementById(item.id).value)
-                        );
-                      }}
-                    >
-                      Add to cart
-                    </button>
-                    <input
-                      id={item.id}
-                      type="number"
-                      min="1"
-                      max="10"
-                      defaultValue={1}
-                    />
+                          addToCartHandler(
+                            item,
+                            Number(document.getElementById(item.id).value)
+                          );
+                        }}
+                        className={styles.addToCartBtn}
+                      >
+                        Add to cart
+                      </button>
+                      <div>
+                        <label htmlFor="qty">Qty:</label>
+                        <input
+                          className={styles.quantityInput}
+                          id={item.id}
+                          name="qty"
+                          type="number"
+                          min="1"
+                          max="10"
+                          defaultValue={1}
+                        />
+                      </div>
+                    </div>
                   </div>
                 ))
               : products.map((item) => (
@@ -93,23 +101,31 @@ const Store = () => {
                     <img src={item.image} alt={item.title + " image"} />
                     <p>{item.title}</p>
                     <p>{item.price}$</p>
-                    <button
-                      onClick={() => {
-                        addToCartHandler(
-                          item,
-                          Number(document.getElementById(item.id).value)
-                        );
-                      }}
-                    >
-                      Add to cart
-                    </button>
-                    <input
-                      id={item.id}
-                      type="number"
-                      min="1"
-                      max="10"
-                      defaultValue={1}
-                    />
+                    <div className={styles.cardOptions}>
+                      <button
+                        className={styles.addToCartBtn}
+                        onClick={() => {
+                          addToCartHandler(
+                            item,
+                            Number(document.getElementById(item.id).value)
+                          );
+                        }}
+                      >
+                        Add to cart
+                      </button>
+                      <div>
+                        <label htmlFor="qty">Qty:</label>
+                        <input
+                          className={styles.quantityInput}
+                          id={item.id}
+                          name="qty"
+                          type="number"
+                          min="1"
+                          max="10"
+                          defaultValue={1}
+                        />
+                      </div>
+                    </div>
                   </div>
                 ))}
           </div>
