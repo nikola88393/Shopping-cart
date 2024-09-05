@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useMemo } from "react";
 import { CartContext } from "../../App";
 import styles from "./Cart.module.css";
 
@@ -12,6 +12,14 @@ const Cart = () => {
     getCartTax,
     decreaseQuantity,
   } = useContext(CartContext);
+
+  const cartSubtotal = useMemo(() => getCartTotal(), [cart]);
+  const cartTax = useMemo(() => getCartTax(), [cart]);
+  const total = useMemo(
+    () => Number(cartSubtotal) + Number(cartTax),
+    [cartSubtotal, cartTax]
+  );
+
   return (
     <div className={styles.cartContainer}>
       <div className={styles.cart}>
@@ -61,9 +69,9 @@ const Cart = () => {
         </div>
         <div className={styles.orderInfo}>
           <div>
-            <h2>Subtotal: {getCartTotal()}$</h2>
-            <h2>Tax 20%: {getCartTax()}$</h2>
-            <h2>Total: {Number(getCartTotal()) + Number(getCartTax())}$</h2>
+            <h2>Subtotal: {cartSubtotal}$</h2>
+            <h2>Tax 20%: {cartTax}$</h2>
+            <h2>Total: {total}$</h2>
           </div>
           <div className={styles.orderOptions}>
             <button className={styles.btn} onClick={clearCart}>
