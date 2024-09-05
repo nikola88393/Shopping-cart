@@ -5,7 +5,9 @@ const useFakeFetch = (url) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(url)
+    fetch(url, {
+      mode: "cors",
+    })
       .then((res) => {
         if (!res.ok) {
           throw new Error("Unexpected network error");
